@@ -3,6 +3,7 @@ class Main {
   
   public static void cookie(){
     Scanner sc = new Scanner(System.in);
+    
     double cookieclick = 0;
     // cookieclick is how many cookies a in your bank
     double cookiecount = 1;
@@ -34,41 +35,35 @@ class Main {
         System.out.println("ok added 1000 more cookies");
       }
       else if(enter.equals("shop")){
-        System.out.println("Checking out shop.");
-        if(cookiecount < 5){
-          System.out.println("You can buy + 5 cookies per clck (-100 cookies)");
-        }
-        else if(cookiecount < 20){
-          System.out.println("You can buy + 5 cookies per clck (-350 cookies)");
-        }
-        else{
-          System.out.println("You can buy + 5 cookies per clck (-1,000 cookies)");
-        }
-        String buy = sc.nextLine();
-        if(buy.equals("buy + 5") & cookieclick > 99.9){
-          if(cookiecount < 5){
-            System.out.println("You bought + 5 cookies per enter.");
-            cookiecount = cookiecount +  4;
-            cookieclick = cookieclick - 100;
-          }
-          else if(cookiecount > 4 & cookiecount < 16){
-            System.out.println("You bought + 5 cookies per enter.");
-            cookiecount = cookiecount +  5;
-            cookieclick = cookieclick - 350;
-          }
-          else if(cookiecount > 19){
-            System.out.println("You bought + 5 cookies per enter.");
-            cookiecount = cookiecount +  5;
-            cookieclick = cookieclick - 1000;
-          }
-          else{
-            System.out.println("You dont have enough cookies to buy this.");
-          }
-          
-        }
-        else{
-          System.out.println("You dont have enough cookies to buy this. Or you misspeled something");
-        }
+        try {
+            
+            System.out.println("Checking out shop.");
+            Thread.sleep(1600);
+            System.out.println("Checking out shop..");
+            Thread.sleep(1500);
+            System.out.println("Checking out shop...");
+            System.out.println("");
+
+            Thread.sleep(1000);
+         } catch (Exception e){
+           
+         }
+        
+        System.out.println("How many cookies do you want to make per enter \nremember that each extra cookie per enter is 100 cookies\n");
+        try{
+          Thread.sleep(1000);
+          System.out.println("How Many Cookeis Do You Want?");
+        }catch (Exception e){}
+        int number = sc.nextInt();
+         if(cookieclick > number * 100 ){
+           cookieclick = cookieclick - number * 100;
+           cookiecount = cookiecount + number; 
+           System.out.println("Ok you bought +" + number + " cookies per enter");
+         } else{
+           System.out.println("you have not enough cookies to buy +" + number + " cookies per enter");
+         }
+         
+         
        }
       else if(enter.equals("bal")){
         System.out.println(cookieclick + " Cookies");
